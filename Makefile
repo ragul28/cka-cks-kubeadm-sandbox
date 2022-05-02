@@ -28,13 +28,6 @@ destroy:
 
 refresh:
 	terraform refresh -var-file=terraform.tfvars
-
-destroy_t:
-	terraform destroy -target $(target)
-
-workspace:
-	terraform workspace list
-	terraform workspace create $(workspace) 
 	
 infracost: planout
 	infracost breakdown --path=out.plan
