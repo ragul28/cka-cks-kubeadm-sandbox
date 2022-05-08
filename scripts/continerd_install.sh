@@ -48,7 +48,7 @@ sudo mkdir -p /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
 
 # https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#configuring-a-cgroup-driver
-sed -i "/^\([[:space:]]*SystemdCgroup = \).*/s//\1true/" /etc/containerd/config.toml
+sudo sed -i "/^\([[:space:]]*SystemdCgroup = \).*/s//\1true/" /etc/containerd/config.toml
 
 # Restart containerd
 sudo systemctl restart containerd
