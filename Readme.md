@@ -1,6 +1,6 @@
 # KubeDM Infra setup
 
-Setup simple kubedm test infra using terrafrom on AWS.
+Setup simple kubedm test infra using terrafrom on AWS using just ec2.
 
 ## Getting started
 
@@ -15,7 +15,7 @@ cp terraform.tfvars.sample terraform.tfvars
 * Run the terraform to create aws stack using Make.
 ```sh
 make plan
-make auto_apply
+make apply
 ```
 
 * OR Using reguler terraform cli.
