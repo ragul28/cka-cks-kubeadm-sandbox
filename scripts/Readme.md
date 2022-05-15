@@ -63,8 +63,23 @@ sudo etcdctl --write-out=table snapshot status snapshot.db
 ## ETCD Restore
 > https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#restoring-an-etcd-cluster
 
+* Stop the static system pods
+```sh
+sudo mv /etc/kubernetes/manifests/kube* /tmp/
+```
 
 * Etcd Restore from backup
 ```sh
 sudo etcdctl --endpoints 127.0.0.1:2379 snapshot restore snapshot.db --data-dir /var/lib/etcd-backup --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key
+```
+
+* Update etcd data path
+```sh
+sudo vim /etc/kubernetes/manifests/etcd.yaml
+```
+> update spec with following arg `--data-dir=/var/lib/etcd-backup`. Plus change mount & host path on ectd  manifests
+
+* Wait few sec until etcd pod updated & bring back kube static pod revert manifests
+```
+sudo mv /tmp/kube* /etc/kubernetes/manifests/
 ```
