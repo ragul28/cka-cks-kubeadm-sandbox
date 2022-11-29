@@ -11,7 +11,7 @@
 
 * Cluster Init with cri socket
 ```sh
-sudo kubeadm init --pod-network-cidr=10.90.0.0/16 --cri-socket unix:///run/containerd/containerd.sock
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --cri-socket unix:///run/containerd/containerd.sock
 ```
 
 ### Configure kubectl access
@@ -32,10 +32,17 @@ kubeadm join <MASTER_IP>:6443 --token l0o18o.xy58cwxhqdglwroa \
 ### Deploy Flannel as a network plugin
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 
+## Check cluster status
+
+```sh
+kubectl get componentstatuses
+kubectl get --raw='/readyz?verbose'
+```
+
 ## K8s version
 
-* Setup version: 1.22.8
-* Latest version: 1.23.6
+* Setup version: 1.24.8
+* Latest version: 1.25.4
 
 ## Upgrade cluster
 > https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
@@ -44,10 +51,10 @@ kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Doc
 > https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
 
 
-* Install etcdctl tool
+* Install etcdctl tool. (Verify ctl version inside pod)
 ```sh
-k exec etcd-ip-10-220-0-48 -n kube-system -- etcdctl version
-wget https://github.com/etcd-io/etcd/releases/download/v3.4.13/etcd-v3.4.13-linux-amd64.tar.gz
+k exec etcd-ip-10-25-0-48 -n kube-system -- etcdctl version
+wget https://github.com/etcd-io/etcd/releases/download/v3.5.6/etcd-v3.5.6-linux-amd64.tar.gz
 tar xzvf etcd-v3.4.13-linux-amd64.tar.gz
 sudo mv etcd-v3.4.13-linux-amd64/etcdctl /usr/local/bin
 ```
