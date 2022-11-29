@@ -5,10 +5,10 @@ profile     = "default"
 
 # VPC
 az_set              = ["us-east-1c", "us-east-1a"]
-main_vpc_cidr_block = "10.220.0.0/24"
+main_vpc_cidr_block = "10.25.0.0/24"
 
-private_subnets = ["10.220.0.128/26", "10.220.0.192/26"]
-public_subnets  = ["10.220.0.0/26", "10.220.0.64/26"]
+private_subnets = ["10.25.0.128/26", "10.25.0.192/26"]
+public_subnets  = ["10.25.0.0/26", "10.25.0.64/26"]
 
 enable_natgw = false
 

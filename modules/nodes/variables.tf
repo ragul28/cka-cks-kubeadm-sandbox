@@ -9,3 +9,5 @@ variable "node_count" {}
 variable "node_name" {}
 
 variable "node_ssh_publickey" {}
+variable "node_ssh_privatekey" {}
+variable "node_username" {}

@@ -19,6 +19,18 @@ resource "aws_instance" "ec2" {
 
   depends_on = [aws_security_group.ssh]
 
+  provisioner "file" {
+    source      = "scripts"
+    destination = "./"
+
+    connection {
+      type        = "ssh"
+      user        = var.node_username
+      private_key = file(var.node_ssh_privatekey)
+      host        = "${self.public_dns}"
+    }
+  }
+
   lifecycle {
     ignore_changes = [iam_instance_profile]
   }
