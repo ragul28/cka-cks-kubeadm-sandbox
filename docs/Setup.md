@@ -7,7 +7,7 @@ alias k=kubectl
 alias kk=kubectl
 alias kd="kubectl describe"
 alias ks="kubectl -n kube-system"
-export d=" --dry-run=client -o yaml
+export d=" --dry-run=client -o yaml"
 
 source /etc/bash_completion
 source <(kubectl completion bash)
