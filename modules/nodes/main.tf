@@ -27,7 +27,7 @@ resource "aws_instance" "ec2" {
       type        = "ssh"
       user        = var.node_username
       private_key = file(var.node_ssh_privatekey)
-      host        = "${self.public_dns}"
+      host        = self.public_dns
     }
   }
 
