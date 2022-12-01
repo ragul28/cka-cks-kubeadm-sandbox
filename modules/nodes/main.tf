@@ -36,7 +36,7 @@ resource "aws_instance" "ec2" {
   }
 
   tags = {
-    Name = "${var.node_name}-${var.node_count}"
+    Name = "${var.node_name}-${count.index}"
   }
 }
 
