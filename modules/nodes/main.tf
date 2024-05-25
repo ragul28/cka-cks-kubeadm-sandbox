@@ -19,16 +19,23 @@ resource "aws_instance" "ec2" {
 
   depends_on = [aws_security_group.ssh]
 
-  provisioner "file" {
-    source      = "scripts"
-    destination = "./"
+  connection {
+    type        = "ssh"
+    user        = var.node_username
+    private_key = file(var.node_ssh_privatekey)
+    host        = self.public_dns
+  }
 
-    connection {
-      type        = "ssh"
-      user        = var.node_username
-      private_key = file(var.node_ssh_privatekey)
-      host        = self.public_dns
-    }
+  provisioner "file" {
+    source      = "scripts/kube_install.sh"
+    destination = "/tmp/kube_install.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/kube_install.sh",
+      "/tmp/kube_install.sh ${var.node_role} ${var.kube_version}",
+    ]
   }
 
   lifecycle {
