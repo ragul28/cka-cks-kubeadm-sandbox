@@ -21,6 +21,9 @@ module "k8s-master" {
   node_ssh_publickey  = var.master_ssh_publickey
   node_ssh_privatekey = var.master_ssh_privatekey
   node_username       = var.master_username
+
+  node_role = "master"
+  kube_version = var.kube_version
 }
 
 module "k8s-worker" {
@@ -36,4 +39,7 @@ module "k8s-worker" {
   node_ssh_publickey  = var.worker_ssh_publickey
   node_ssh_privatekey = var.worker_ssh_privatekey
   node_username       = var.worker_username
+
+  node_role = "worker"
+  kube_version = var.kube_version
 }
