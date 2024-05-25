@@ -42,3 +42,6 @@ variable "worker_name" {}
 variable "worker_ssh_publickey" {}
 variable "worker_ssh_privatekey" {}
 variable "worker_username" {}
+
+## Kube
+variable "kube_version" {}
