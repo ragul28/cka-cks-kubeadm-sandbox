@@ -1,6 +1,6 @@
 # KubeDM Infra setup
 
-Setup simple kubedm test infra using terrafrom on AWS using just ec2.
+Setup vanilla k8s cluster using KubeDM in AWS ec2. Used as sandbox for CKA & CKS.  
 
 ## Getting started
 
@@ -11,15 +11,12 @@ Setup simple kubedm test infra using terrafrom on AWS using just ec2.
 ```sh
 cp terraform.tfvars.sample terraform.tfvars
 ```
-
+* Export to use different profile
+```sh
+Export AWS_PROFILE=<profile_name>
+```
 * Run the terraform to create aws stack using Make.
 ```sh
 make plan
 make apply
-```
-
-* OR Using reguler terraform cli.
-```
-terraform init
-terraform apply
 ```

@@ -1,7 +1,6 @@
 project     = "cka-cluster"
 aws_region  = "us-east-1" # "us-east-1", "ap-southeast-1"
 environment = "test"
-profile     = "default"
 
 # VPC
 az_set              = ["us-east-1c", "us-east-1a"]
@@ -28,3 +27,5 @@ worker_count         = 2
 worker_name          = "k8s-worker"
 worker_ssh_publickey = "~/.ssh/id_rsa.pub"
 
+# Kube
+kube_version = "v1.29"

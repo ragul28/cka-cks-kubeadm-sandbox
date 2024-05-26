@@ -1,6 +1,5 @@
 variable "project" {}
 variable "environment" {}
-variable "profile" {}
 
 variable "aws_region" {}
 
