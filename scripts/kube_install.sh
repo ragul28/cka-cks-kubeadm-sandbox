@@ -85,8 +85,7 @@ if [ "$NODE_ROLE" = "master" ]; then
   kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/${CALICO_VERSION}/manifests/tigera-operator.yaml
   curl -fsSL https://raw.githubusercontent.com/projectcalico/calico/${CALICO_VERSION}/manifests/custom-resources.yaml | sed 's/192.168.0.0\/16/10.244.0.0\/16/g' | kubectl apply -f -
 
-  ### Install 
-  kubectl create -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/high-availability-1.21+.yaml
-  kubectl  scale deployment metrics-server --replicas=1 -n kube-system
-  kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
+  ### Install matric-server
+  curl -fsSL https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml | sed 's/10250/4443/g' | kubectl apply -f -
+  kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/hostNetwork", "value": true},{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
 fi
