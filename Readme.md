@@ -20,3 +20,8 @@ Export AWS_PROFILE=<profile_name>
 make plan
 make apply
 ```
+
+* SSH into the master node retrieve the join command & run it on worker nodes
+```sh
+kubeadm token create --print-join-command --ttl 0
+```
