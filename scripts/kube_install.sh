@@ -53,6 +53,10 @@ containerd config default | sudo tee /etc/containerd/config.toml
 # https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#configuring-a-cgroup-driver
 sudo sed -i "/^\([[:space:]]*SystemdCgroup = \).*/s//\1true/" /etc/containerd/config.toml
 
+# Setup crictl endpoint
+cat <<EOF | sudo tee /etc/crictl.yaml
+runtime-endpoint: unix:///run/containerd/containerd.sock
+EOF
 
 # Install Kubeadm, kubelet & kubectl
 sudo mkdir -p /etc/apt/keyrings/
