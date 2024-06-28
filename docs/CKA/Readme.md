@@ -28,8 +28,16 @@ kubeadm token create --print-join-command --ttl 0
 ```
 > Test the master node connection using `telnet <MASTER_IP> 6443`
 
-### Deploy Flannel as a network plugin
+### Network plugin
+
+* Install Flannel for minimal network plugin  
+```sh
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+```
+* Or use Calico network plugin. [Installation setups](https://docs.tigera.io/calico/latest/getting-started/kubernetes/self-managed-onprem/onpremises)
+
+> https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-network-model
+
 
 ### Check cluster status
 
