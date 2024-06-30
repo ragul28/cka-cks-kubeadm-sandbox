@@ -24,7 +24,6 @@ variable "enable_natgw" {}
 
 ##Master
 variable "master_instance_type" {}
-variable "master_ami" {}
 variable "master_disk_size" {}
 variable "master_count" {}
 variable "master_name" {}
@@ -34,7 +33,6 @@ variable "master_username" {}
 
 ##Worker
 variable "worker_instance_type" {}
-variable "worker_ami" {}
 variable "worker_disk_size" {}
 variable "worker_count" {}
 variable "worker_name" {}

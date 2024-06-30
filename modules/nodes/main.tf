@@ -1,7 +1,7 @@
 resource "aws_instance" "ec2" {
   count = var.node_count
 
-  ami                         = var.node_ami
+  ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.node_instance_type
   subnet_id                   = var.node_subnet_id
   associate_public_ip_address = true
