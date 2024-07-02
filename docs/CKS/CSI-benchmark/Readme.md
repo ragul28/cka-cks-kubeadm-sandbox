@@ -29,7 +29,7 @@ vim /etc/kubernetes/audit-policy.yaml
   - --audit-log-path=/var/log/kubernetes/audit/audit.log
   - --audit-log-maxage=3
   - --audit-log-maxbackup=5
-  - --audit-log-maxbackup=200
+  - --audit-log-maxsize=200
 ```
 
 ## List resources
