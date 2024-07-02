@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: pod-access
+  namespace: red-team
+spec:
+  podSelector:
+    name: user-service
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: qa
+    - namespaceSelector: {}
+      podSelector:
+        matchLabels:
+          env: test 

@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restrict-np
+  namespace: testing
+spec:
+  podSelector:
+    matchLabels:
+      run: nginx-pod
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          role: restrict
+    - podSelector:
+        matchLabels:
+          version: v1
