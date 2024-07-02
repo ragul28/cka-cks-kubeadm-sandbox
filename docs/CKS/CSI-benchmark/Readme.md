@@ -34,7 +34,7 @@ vim /etc/kubernetes/audit-policy.yaml
 
 ## List resources
 
-* System users list
+* System userGroups list
 ```sh
 $ kubectl get clusterrolebindings -o jsonpath='{range .items[*]}{.subjects[?(@.kind=="Group")].name}{"\n"}{end}' | sort | uniq
 
@@ -48,7 +48,7 @@ system:nodes
 system:serviceaccounts
 ```
 
-* System userGroups list
+* System user list
 ```sh
 $ kubectl get clusterrolebindings -o jsonpath='{range .items[*]}{.subjects[?(@.kind=="User")].name}{"\n"}{end}' | sort | uniq
 
