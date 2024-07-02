@@ -1,4 +1,4 @@
-project     = "cka-cluster"
+project     = "ck-cluster"
 aws_region  = "us-east-1" # "us-east-1", "ap-southeast-1"
 environment = "test"
 
@@ -12,20 +12,22 @@ public_subnets  = ["10.25.0.0/26", "10.25.0.64/26"]
 enable_natgw = false
 
 # Master
-master_instance_type = "t3a.medium"
-master_ami           = "ami-0c4f7023847b90238"
-master_disk_size     = 20
-master_count         = 1
-master_name          = "k8s-master"
-master_ssh_publickey = "~/.ssh/id_rsa.pub"
+master_instance_type  = "t3a.medium"
+master_disk_size      = 20
+master_count          = 1
+master_name           = "k8s-master"
+master_ssh_publickey  = "~/.ssh/id_rsa.pub"
+master_ssh_privatekey = "~/.ssh/id_rsa"
+master_username       = "ubuntu"
 
 # Worker
-worker_instance_type = "t3a.medium"
-worker_ami           = "ami-0c4f7023847b90238"
-worker_disk_size     = 30
-worker_count         = 2
-worker_name          = "k8s-worker"
-worker_ssh_publickey = "~/.ssh/id_rsa.pub"
+worker_instance_type  = "t3a.medium"
+worker_disk_size      = 30
+worker_count          = 2
+worker_name           = "k8s-worker"
+worker_ssh_publickey  = "~/.ssh/id_rsa.pub"
+worker_ssh_privatekey = "~/.ssh/id_rsa"
+worker_username       = "ubuntu"
 
 # Kube
-kube_version = "v1.29"
+kube_version = "v1.30"
