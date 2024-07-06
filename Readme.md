@@ -1,6 +1,6 @@
-# KubeDM Infra setup
+# CKA & CKS Kubeadm Sandbox
 
-Setup vanilla k8s cluster using KubeDM in AWS ec2. Used as sandbox for CKA & CKS.  
+Setup a vanilla Kubernetes cluster using Kubeadm in AWS with Terraform. This project creates the necessary network, compute resources, and Kubeadm provisioning. This making it perfect for practicing CKA and CKS skills.
 
 ## Getting started
 
