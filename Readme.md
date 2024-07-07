@@ -26,7 +26,15 @@ make plan
 make apply
 ```
 
-* SSH into the master node retrieve the join command & run it on worker nodes
+* Verify cluster components are healthy & then from the master node retrieve the join command to run it on worker nodes
 ```sh
+kubectl get --raw='/readyz?verbose'
+
 kubeadm token create --print-join-command --ttl 0
+``` 
+
+* Verify the nodes are listed with system pods running healthy
+```sh
+kubectl get no
+kubectl get po -A
 ```
