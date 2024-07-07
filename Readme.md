@@ -2,7 +2,12 @@
 
 Setup a vanilla Kubernetes cluster using Kubeadm in AWS with Terraform. This project creates the necessary network, compute resources, and Kubeadm provisioning. This making it perfect for practicing CKA and CKS skills.
 
-## Getting started
+## 🚀 Features
+- **Automated Cluster Provisioning:** Utilize Terraform to automate the provisioning of Kubernetes clusters in AWS.This includes dependencies such as containerd, Kubeadm, kubelet, and kubectl.
+- **Calico CNI:** Calico installed as part of cluster Provisioning.
+- **Kubernetes Certification:** Basic Guides and docs tailored for CKA and CKS exam.
+
+## 🛠️ Getting started
 
 * Make sure AWS credentials are config using aws cli.
 * Clone project 
